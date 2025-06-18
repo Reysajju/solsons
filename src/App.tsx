@@ -14,7 +14,22 @@ import {
   Target,
   ExternalLink,
   MessageCircle,
-  DollarSign
+  BookOpen,
+  Globe,
+  Zap,
+  PenTool,
+  FileText,
+  Video,
+  Headphones,
+  Image as ImageIcon,
+  DollarSign,
+  BarChart3,
+  Rocket,
+  Sparkles,
+  TrendingUp as TrendingUpIcon,
+  Heart,
+  Eye,
+  Download
 } from 'lucide-react';
 
 function App() {
@@ -31,35 +46,31 @@ function App() {
     
     if (scrollContainer) {
       const scrollWidth = scrollContainer.scrollWidth;
-      const animationDuration = scrollWidth / 50; // Adjust speed here
-      
+      const animationDuration = scrollWidth / 50;
       scrollContainer.style.animationDuration = `${animationDuration}s`;
     }
     
     if (scrollContainer2) {
       const scrollWidth2 = scrollContainer2.scrollWidth;
       const animationDuration2 = scrollWidth2 / 50;
-      
       scrollContainer2.style.animationDuration = `${animationDuration2}s`;
     }
 
     if (resultsContainer) {
       const scrollWidth3 = resultsContainer.scrollWidth;
       const animationDuration3 = scrollWidth3 / 40;
-      
       resultsContainer.style.animationDuration = `${animationDuration3}s`;
     }
 
     if (testimonialsContainer) {
       const scrollWidth4 = testimonialsContainer.scrollWidth;
       const animationDuration4 = scrollWidth4 / 35;
-      
       testimonialsContainer.style.animationDuration = `${animationDuration4}s`;
     }
   }, []);
 
-  const handleAskQuestion = () => {
-    const subject = encodeURIComponent("I want a website for my business");
+  const handleGetStarted = () => {
+    const subject = encodeURIComponent("I want to publish my content");
     window.location.href = `mailto:peter@solson.online?subject=${subject}`;
   };
 
@@ -67,127 +78,216 @@ function App() {
   const SolsonLogo = ({ className = "h-8 w-8" }) => (
     <div className={`${className} relative flex items-center justify-center`}>
       <div className="relative">
-        <DollarSign className="h-full w-full text-blue-600" />
-        <TrendingUp className="absolute -top-1 -right-1 h-4 w-4 text-green-500" />
+        <BookOpen className="h-full w-full text-blue-600" />
+        <Globe className="absolute -top-1 -right-1 h-4 w-4 text-green-500" />
       </div>
+    </div>
+  );
+
+  // Floating Animation Component
+  const FloatingElement = ({ children, delay = 0, duration = 3 }: { children: React.ReactNode, delay?: number, duration?: number }) => (
+    <div 
+      className="absolute animate-float opacity-20"
+      style={{
+        animationDelay: `${delay}s`,
+        animationDuration: `${duration}s`
+      }}
+    >
+      {children}
     </div>
   );
 
   return (
     <div className="min-h-screen bg-white">
       {/* Sticky CTA Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-orange-500 text-white p-4 z-50 shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white p-4 z-50 shadow-2xl backdrop-blur-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
-            <MessageCircle className="h-5 w-5 mr-2" />
-            <span className="font-semibold">Ready to grow your business?</span>
+            <MessageCircle className="h-5 w-5 mr-2 animate-pulse" />
+            <span className="font-semibold">Ready to publish your content globally?</span>
           </div>
           <button 
-            onClick={handleAskQuestion}
-            className="bg-white text-orange-500 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+            onClick={handleGetStarted}
+            className="bg-white text-orange-500 px-6 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            Ask Now
+            Get Started
           </button>
         </div>
       </div>
 
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-40">
+      <header className="bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <a href="https://solson.online" className="flex items-center">
-                <SolsonLogo className="h-10 w-10 mr-3" />
-                <span className="text-2xl font-bold text-gray-900">Solson</span>
+              <a href="/" className="flex items-center group">
+                <SolsonLogo className="h-10 w-10 mr-3 transition-transform duration-300 group-hover:scale-110" />
+                <span className="text-2xl font-bold text-gray-900 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Solson</span>
               </a>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-              <a href="#results" className="text-gray-700 hover:text-blue-600 transition-colors">Results</a>
-              <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">Reviews</a>
-              <a href="/contact.html" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+              <a href="#services" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Services
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#authors" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Authors
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Success Stories
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="/contact.html" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Contact
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
               <button 
-                onClick={handleAskQuestion}
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                onClick={handleGetStarted}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                Ask Now
+                Publish Now
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Animated Background */}
+      <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <FloatingElement delay={0} duration={4}>
+            <div className="top-20 left-10">
+              <BookOpen className="h-16 w-16 text-blue-300" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={1} duration={5}>
+            <div className="top-32 right-20">
+              <PenTool className="h-12 w-12 text-purple-300" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={2} duration={3.5}>
+            <div className="top-60 left-1/4">
+              <FileText className="h-14 w-14 text-green-300" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={0.5} duration={4.5}>
+            <div className="bottom-40 right-10">
+              <Globe className="h-18 w-18 text-blue-400" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={1.5} duration={3.8}>
+            <div className="top-40 right-1/3">
+              <Sparkles className="h-10 w-10 text-yellow-300" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={2.5} duration={4.2}>
+            <div className="bottom-60 left-20">
+              <Heart className="h-12 w-12 text-pink-300" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={0.8} duration={3.2}>
+            <div className="top-80 left-1/2">
+              <TrendingUpIcon className="h-14 w-14 text-orange-300" />
+            </div>
+          </FloatingElement>
+          
+          <FloatingElement delay={1.8} duration={4.8}>
+            <div className="bottom-20 right-1/4">
+              <Eye className="h-10 w-10 text-indigo-300" />
+            </div>
+          </FloatingElement>
+
+          {/* Gradient Orbs */}
+          <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
             <div className="mb-12 lg:mb-0">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-800 text-sm font-medium mb-6 animate-bounce">
+                <Sparkles className="h-4 w-4 mr-2" />
+                Join 50,000+ Published Authors
+              </div>
+              
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Turn Your Local Business Into a 
-                <span className="text-blue-600"> Customer Magnet</span>
+                Transform Your Ideas Into 
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent animate-gradient"> Published Content</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Stop losing customers to competitors. We help local businesses like yours attract more customers, 
-                increase revenue, and dominate your market with proven digital strategies that actually work.
+                Join the world's leading digital publishing platform. Publish books, articles, and multimedia content 
+                to reach millions of readers worldwide. Turn your creativity into a thriving publishing business.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button 
-                  onClick={handleAskQuestion}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg"
+                  onClick={handleGetStarted}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold text-lg shadow-2xl hover:shadow-3xl group"
                 >
-                  Ask About Your Business
-                  <ArrowRight className="inline ml-2 h-5 w-5" />
+                  Start Publishing Today
+                  <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
                 <button 
-                  onClick={() => document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all font-semibold"
+                  onClick={() => document.getElementById('authors')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 font-semibold backdrop-blur-sm"
                 >
-                  See Our Results
+                  See Success Stories
                 </button>
               </div>
 
               <div className="flex items-center space-x-6 text-sm text-gray-600">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  No long-term contracts
+                <div className="flex items-center group">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  Global distribution
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Results in 30 days
+                <div className="flex items-center group">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  Instant publishing
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  100% satisfaction guarantee
+                <div className="flex items-center group">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  Earn royalties
                 </div>
               </div>
             </div>
 
             <div className="relative">
-              <div className="bg-white p-8 rounded-2xl shadow-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Consultation</h3>
+              <div className="bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Rocket className="h-6 w-6 mr-2 text-blue-600" />
+                  Start Your Publishing Journey
+                </h3>
                 
                 {/* Netlify Contact Form */}
                 <form 
-                  name="contact" 
+                  name="publisher-contact" 
                   method="POST" 
                   data-netlify="true" 
                   action="/thank-you.html"
                   className="space-y-4"
                 >
-                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="form-name" value="publisher-contact" />
                   
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Business Name *
+                      Full Name *
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Your Business Name"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                      placeholder="Your Full Name"
                     />
                   </div>
                   
@@ -200,7 +300,7 @@ function App() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -213,66 +313,80 @@ function App() {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
                       placeholder="(555) 123-4567"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="business-type" className="block text-sm font-medium text-gray-700 mb-1">
-                      Business Type
+                    <label htmlFor="content-type" className="block text-sm font-medium text-gray-700 mb-1">
+                      Content Type
                     </label>
                     <select
-                      id="business-type"
-                      name="business-type"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      id="content-type"
+                      name="content-type"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
                     >
-                      <option value="">Select your business type</option>
-                      <option value="restaurant">Restaurant/Food Service</option>
-                      <option value="healthcare">Healthcare/Medical</option>
-                      <option value="legal">Legal Services</option>
-                      <option value="home-services">Home Services (HVAC, Plumbing, etc.)</option>
-                      <option value="automotive">Automotive</option>
-                      <option value="beauty">Beauty/Wellness</option>
-                      <option value="retail">Retail</option>
-                      <option value="real-estate">Real Estate</option>
+                      <option value="">What do you want to publish?</option>
+                      <option value="book">Book/eBook</option>
+                      <option value="articles">Articles/Blog Posts</option>
+                      <option value="research">Research Papers</option>
+                      <option value="multimedia">Multimedia Content</option>
+                      <option value="magazine">Magazine/Newsletter</option>
+                      <option value="course">Online Course</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Tell us about your business goals
+                      Tell us about your content
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={3}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="What are your main challenges? What would you like to achieve?"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                      placeholder="What's your content about? What are your publishing goals?"
                     ></textarea>
                   </div>
                   
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-blue-900 mb-2">What you'll get:</h4>
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-100">
+                    <h4 className="font-semibold text-blue-900 mb-2 flex items-center">
+                      <Award className="h-4 w-4 mr-2" />
+                      What you'll get:
+                    </h4>
                     <ul className="text-sm text-blue-800 space-y-1">
-                      <li>✓ Free business analysis</li>
-                      <li>✓ Custom growth strategy</li>
-                      <li>✓ Competitor insights</li>
-                      <li>✓ Revenue projections</li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-3 w-3 mr-2 text-green-600" />
+                        Free publishing consultation
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-3 w-3 mr-2 text-green-600" />
+                        Custom publishing strategy
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-3 w-3 mr-2 text-green-600" />
+                        Global distribution plan
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-3 w-3 mr-2 text-green-600" />
+                        Revenue optimization tips
+                      </li>
                     </ul>
                   </div>
                   
                   <button 
                     type="submit"
-                    className="w-full bg-orange-500 text-white py-4 rounded-lg hover:bg-orange-600 transition-colors font-semibold text-lg"
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
-                    Get My Free Analysis
+                    Get My Publishing Plan
                   </button>
                 </form>
                 
-                <p className="text-xs text-gray-500 mt-4 text-center">
-                  No spam, just valuable insights for your business growth.
+                <p className="text-xs text-gray-500 mt-4 text-center flex items-center justify-center">
+                  <Users className="h-3 w-3 mr-1" />
+                  Join 50,000+ published authors and content creators worldwide.
                 </p>
               </div>
             </div>
@@ -281,7 +395,7 @@ function App() {
       </section>
 
       {/* Animated Reviews Section */}
-      <section className="py-8 bg-gray-50 overflow-hidden">
+      <section className="py-8 bg-gradient-to-r from-gray-50 to-gray-100 overflow-hidden">
         <div className="mb-4">
           <div 
             ref={scrollRef}
@@ -291,16 +405,16 @@ function App() {
             }}
           >
             {[
-              { name: "Sarah Martinez", business: "Martinez Dental", rating: 5, text: "Revenue increased 250% in 4 months!" },
-              { name: "David Chen", business: "Chen's Landscaping", rating: 5, text: "Now the #1 choice in our area" },
-              { name: "Dr. Michael Roberts", business: "Roberts Family Dentistry", rating: 5, text: "15-20 new patients per week now" },
-              { name: "Maria Rossi", business: "Rossi's Italian Kitchen", rating: 5, text: "Delivery orders up 340%" },
-              { name: "James Thompson", business: "Thompson Law Firm", rating: 5, text: "Case intake tripled" },
-              { name: "Robert Kim", business: "Kim's Climate Control", rating: 5, text: "20+ service calls weekly" },
-              { name: "Lisa Park", business: "Park & Associates CPA", rating: 5, text: "85 new clients in 6 months" },
-              { name: "Amanda Foster", business: "Pampered Paws Grooming", rating: 5, text: "Booked 4 weeks out" }
+              { name: "Sarah Johnson", type: "Bestselling Author", rating: 5, text: "Published 5 books, earned $50K in first year!" },
+              { name: "Dr. Michael Chen", type: "Research Scientist", rating: 5, text: "My research reached 100K+ readers globally" },
+              { name: "Emma Rodriguez", type: "Content Creator", rating: 5, text: "Monthly revenue of $8K from my articles" },
+              { name: "James Wilson", type: "Business Author", rating: 5, text: "Book became #1 in business category" },
+              { name: "Lisa Park", type: "Fiction Writer", rating: 5, text: "Trilogy sold 25K copies worldwide" },
+              { name: "David Thompson", type: "Educational Content", rating: 5, text: "Online course reached 10K students" },
+              { name: "Maria Santos", type: "Lifestyle Blogger", rating: 5, text: "Blog monetization increased 400%" },
+              { name: "Robert Kim", type: "Technical Writer", rating: 5, text: "Programming guide became industry standard" }
             ].map((review, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-md min-w-[300px] flex-shrink-0">
+              <div key={index} className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-lg min-w-[300px] flex-shrink-0 border border-white/20 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-2">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
@@ -309,7 +423,7 @@ function App() {
                 <p className="text-sm text-gray-700 mb-2">"{review.text}"</p>
                 <div className="text-xs text-gray-500">
                   <div className="font-semibold">{review.name}</div>
-                  <div>{review.business}</div>
+                  <div>{review.type}</div>
                 </div>
               </div>
             ))}
@@ -325,16 +439,16 @@ function App() {
             }}
           >
             {[
-              { name: "Carlos Rodriguez", business: "Rodriguez Plumbing", rating: 5, text: "25-30 calls per day now" },
-              { name: "Jennifer Walsh", business: "FitCore Studio", rating: 5, text: "Membership grew 220%" },
-              { name: "Mark Stevens", business: "Stevens Real Estate", rating: 5, text: "45 more homes closed this year" },
-              { name: "Tony Ricci", business: "Ricci's Auto Repair", rating: 5, text: "#1 rated shop in the city" },
-              { name: "Tony Martinez", business: "Tony's Pizza Palace", rating: 5, text: "Online orders up 340%" },
-              { name: "Mike Johnson", business: "Mike's HVAC Services", rating: 5, text: "Booked solid for 3 months" },
-              { name: "Johnson Legal", business: "Legal Group", rating: 5, text: "Tripled client base" },
-              { name: "Elite Real Estate", business: "Real Estate Group", rating: 5, text: "Listing appointments doubled" }
+              { name: "Amanda Foster", type: "Children's Author", rating: 5, text: "Picture book series loved by thousands" },
+              { name: "Carlos Rodriguez", type: "Health & Wellness", rating: 5, text: "Nutrition guide changed lives globally" },
+              { name: "Jennifer Walsh", type: "Romance Novelist", rating: 5, text: "Romance series topped bestseller lists" },
+              { name: "Mark Stevens", type: "Investment Advisor", rating: 5, text: "Financial guide helped 50K+ investors" },
+              { name: "Tony Martinez", type: "Chef & Author", rating: 5, text: "Cookbook became international hit" },
+              { name: "Rachel Green", type: "Self-Help Author", rating: 5, text: "Motivational book inspired millions" },
+              { name: "Alex Johnson", type: "Sci-Fi Writer", rating: 5, text: "Space opera series gained cult following" },
+              { name: "Sophie Brown", type: "Art Instructor", rating: 5, text: "Art tutorials reached creative community" }
             ].map((review, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-md min-w-[300px] flex-shrink-0">
+              <div key={index} className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-lg min-w-[300px] flex-shrink-0 border border-white/20 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-2">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
@@ -343,7 +457,7 @@ function App() {
                 <p className="text-sm text-gray-700 mb-2">"{review.text}"</p>
                 <div className="text-xs text-gray-500">
                   <div className="font-semibold">{review.name}</div>
-                  <div>{review.business}</div>
+                  <div>{review.type}</div>
                 </div>
               </div>
             ))}
@@ -352,62 +466,62 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-16 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">750+</div>
-              <div className="text-gray-300">Local Businesses Served</div>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">50K+</div>
+              <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Published Authors</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-green-400 mb-2">285%</div>
-              <div className="text-gray-300">Average Revenue Increase</div>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">2M+</div>
+              <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Content Pieces Published</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-400 mb-2">30</div>
-              <div className="text-gray-300">Days to See Results</div>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">150+</div>
+              <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Countries Reached</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-purple-400 mb-2">98%</div>
-              <div className="text-gray-300">Client Satisfaction Rate</div>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">$50M+</div>
+              <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Author Earnings</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 bg-red-50">
+      <section className="py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-            Are You Tired of Watching Customers Choose Your Competitors?
+            Tired of Your Content Being Invisible to the World?
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <div className="text-red-500 text-5xl mb-4">😞</div>
-              <h3 className="font-semibold text-gray-900 mb-3">Invisible Online</h3>
-              <p className="text-gray-600">Your competitors show up first when customers search, while your business stays hidden</p>
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/20">
+              <div className="text-red-500 text-5xl mb-4">📚</div>
+              <h3 className="font-semibold text-gray-900 mb-3">Limited Reach</h3>
+              <p className="text-gray-600">Your amazing content sits on your computer while millions of potential readers never discover it</p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/20">
               <div className="text-red-500 text-5xl mb-4">💸</div>
-              <h3 className="font-semibold text-gray-900 mb-3">Wasted Marketing</h3>
-              <p className="text-gray-600">You're spending money on ads and marketing that bring in tire-kickers, not real customers</p>
+              <h3 className="font-semibold text-gray-900 mb-3">No Monetization</h3>
+              <p className="text-gray-600">You create valuable content but struggle to turn your expertise into sustainable income</p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <div className="text-red-500 text-5xl mb-4">📉</div>
-              <h3 className="font-semibold text-gray-900 mb-3">Stagnant Growth</h3>
-              <p className="text-gray-600">Your revenue has plateaued and you're working harder than ever just to stay afloat</p>
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/20">
+              <div className="text-red-500 text-5xl mb-4">🔒</div>
+              <h3 className="font-semibold text-gray-900 mb-3">Complex Publishing</h3>
+              <p className="text-gray-600">Traditional publishing is slow, expensive, and gives you little control over your work</p>
             </div>
           </div>
           <p className="text-xl text-gray-700 mb-8">
-            <strong>The truth is:</strong> Your potential customers are out there right now, searching for exactly what you offer. 
-            But they're finding your competitors instead of you.
+            <strong>The truth is:</strong> Your ideas deserve to reach the world. Every day you wait is another day your potential readers 
+            miss out on your valuable content.
           </p>
           <button 
-            onClick={handleAskQuestion}
-            className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg"
+            onClick={handleGetStarted}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold text-lg shadow-2xl group"
           >
-            Let's Fix This Now
-            <ArrowRight className="inline ml-2 h-5 w-5" />
+            Start Publishing Today
+            <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>
       </section>
@@ -417,67 +531,90 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              We Turn Local Businesses Into Market Leaders
+              The Complete Digital Publishing Platform
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our proven system helps local businesses attract more customers, increase revenue, and dominate their local market.
+              From manuscript to global bestseller - we provide everything you need to publish, distribute, and monetize your content worldwide.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Target className="h-8 w-8 text-blue-600" />
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300">
+                <Rocket className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Get Found First</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Instant Publishing</h3>
               <p className="text-gray-600">
-                We optimize your online presence so you appear at the top when customers search for your services. 
-                No more losing customers to competitors who show up first.
+                Upload your content and go live within 24 hours. No waiting months for approval - 
+                your ideas reach readers immediately.
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="h-8 w-8 text-green-600" />
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-green-100 to-green-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300">
+                <Globe className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Attract Quality Leads</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Distribution</h3>
               <p className="text-gray-600">
-                Our targeted marketing brings you customers who are ready to buy, not tire-kickers. 
-                You'll get more qualified leads that convert into paying customers.
+                Reach readers in 150+ countries through our worldwide distribution network. 
+                Your content becomes available to millions instantly.
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <TrendingUp className="h-8 w-8 text-orange-600" />
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-r from-orange-100 to-orange-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300">
+                <DollarSign className="h-8 w-8 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Grow Your Revenue</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Maximize Earnings</h3>
               <p className="text-gray-600">
-                With more visibility and better leads, you'll see significant revenue growth. 
-                Our clients typically see 200-400% increase in qualified leads within 90 days.
+                Keep up to 70% of your revenue with our transparent royalty system. 
+                Multiple monetization options to maximize your income.
               </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100">
+              <BookOpen className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h4 className="font-semibold text-gray-900 mb-2">Books & eBooks</h4>
+              <p className="text-sm text-gray-600">Fiction, non-fiction, textbooks, and more</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-50 to-green-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100">
+              <FileText className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <h4 className="font-semibold text-gray-900 mb-2">Articles & Blogs</h4>
+              <p className="text-sm text-gray-600">Professional articles and blog content</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-50 to-purple-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100">
+              <Video className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+              <h4 className="font-semibold text-gray-900 mb-2">Video Content</h4>
+              <p className="text-sm text-gray-600">Educational videos and documentaries</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-50 to-orange-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100">
+              <Headphones className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+              <h4 className="font-semibold text-gray-900 mb-2">Audio Content</h4>
+              <p className="text-sm text-gray-600">Podcasts, audiobooks, and music</p>
             </div>
           </div>
 
           <div className="text-center">
             <button 
-              onClick={handleAskQuestion}
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg"
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold text-lg shadow-2xl group"
             >
-              Ask About Your Business Growth
-              <ArrowRight className="inline ml-2 h-5 w-5" />
+              Start Your Publishing Journey
+              <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* Animated Results Section */}
-      <section id="results" className="py-20 bg-blue-50 overflow-hidden">
+      {/* Animated Success Stories */}
+      <section id="authors" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Real Results from Real Local Businesses
+              Real Success Stories from Real Authors
             </h2>
             <p className="text-xl text-gray-600">
-              See how we've helped businesses just like yours dominate their local market
+              See how creators like you built thriving publishing businesses with Solson
             </p>
           </div>
 
@@ -490,21 +627,21 @@ function App() {
               }}
             >
               {[
-                { emoji: "🍕", name: "Tony's Pizza Palace", quote: "Online orders increased 340% in just 60 days. We went from struggling to having a waitlist!", result: "340% increase in online orders" },
-                { emoji: "🔧", name: "Mike's HVAC Services", quote: "I'm booked solid for the next 3 months. My phone hasn't stopped ringing since we started.", result: "400% increase in service calls" },
-                { emoji: "⚖️", name: "Johnson Legal Group", quote: "We've tripled our client base and had to hire 2 new attorneys to handle the demand.", result: "300% increase in new clients" },
-                { emoji: "🏠", name: "Elite Real Estate Group", quote: "Closed 45 more homes this year than last. Our listing appointments doubled overnight.", result: "200% increase in listings" },
-                { emoji: "🦷", name: "Bright Smile Dental", quote: "New patient bookings increased 280%. We had to extend our hours to accommodate demand.", result: "280% increase in new patients" },
-                { emoji: "🚗", name: "AutoCare Plus", quote: "Service appointments up 350%. We're now the #1 auto shop in our city on Google.", result: "350% increase in appointments" },
-                { emoji: "💼", name: "Park & Associates CPA", quote: "85 new clients in 6 months. Tax season was our busiest ever.", result: "85 new clients in 6 months" },
-                { emoji: "🐕", name: "Pampered Paws Grooming", quote: "Booked 4 weeks out consistently. Had to hire 2 more groomers.", result: "Booked 4 weeks out" }
-              ].map((business, index) => (
-                <div key={index} className="bg-white p-8 rounded-xl shadow-lg min-w-[350px] flex-shrink-0">
-                  <div className="text-4xl mb-4">{business.emoji}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{business.name}</h3>
-                  <p className="text-gray-600 mb-4">"{business.quote}"</p>
-                  <div className="bg-green-100 p-3 rounded-lg">
-                    <div className="text-green-800 font-semibold">{business.result}</div>
+                { emoji: "📖", name: "Sarah's Romance Series", quote: "From unknown writer to bestselling author in 6 months. My romance trilogy sold 25,000 copies!", result: "25K copies sold" },
+                { emoji: "🔬", name: "Dr. Chen's Research", quote: "My climate research paper reached 100,000+ readers globally and influenced policy changes.", result: "100K+ readers reached" },
+                { emoji: "💼", name: "Business Mastery Guide", quote: "My business book became #1 in its category and generated $75K in first year.", result: "#1 Bestseller, $75K earned" },
+                { emoji: "🍳", name: "Chef Maria's Cookbook", quote: "International cookbook success! Translated into 12 languages and featured on TV.", result: "12 language translations" },
+                { emoji: "🎨", name: "Creative Art Tutorials", quote: "Art instruction series reached 50K students and built a thriving online community.", result: "50K students taught" },
+                { emoji: "💪", name: "Fitness Transformation", quote: "Health and fitness guide helped 30K people lose weight and change their lives.", result: "30K lives changed" },
+                { emoji: "🏠", name: "Home Design Magazine", quote: "Monthly design magazine grew to 15K subscribers with $12K monthly revenue.", result: "$12K monthly revenue" },
+                { emoji: "🚀", name: "Tech Startup Guide", quote: "Startup handbook became required reading at 20+ universities worldwide.", result: "20+ universities adopted" }
+              ].map((story, index) => (
+                <div key={index} className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl min-w-[350px] flex-shrink-0 border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                  <div className="text-4xl mb-4">{story.emoji}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{story.name}</h3>
+                  <p className="text-gray-600 mb-4">"{story.quote}"</p>
+                  <div className="bg-gradient-to-r from-green-100 to-emerald-100 p-3 rounded-xl border border-green-200">
+                    <div className="text-green-800 font-semibold">{story.result}</div>
                   </div>
                 </div>
               ))}
@@ -513,11 +650,11 @@ function App() {
           
           <div className="text-center">
             <button 
-              onClick={handleAskQuestion}
-              className="bg-orange-500 text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg"
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 font-semibold text-lg shadow-2xl group"
             >
-              Get Similar Results for My Business
-              <ArrowRight className="inline ml-2 h-5 w-5" />
+              Create Your Success Story
+              <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </div>
         </div>
@@ -528,10 +665,10 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Clients Say
+              What Our Authors Say
             </h2>
             <p className="text-xl text-gray-600">
-              Hear directly from business owners who transformed their success with Solson
+              Hear directly from creators who transformed their passion into publishing success
             </p>
           </div>
 
@@ -545,43 +682,43 @@ function App() {
             >
               {[
                 {
-                  quote: "Solson completely transformed our business. We went from getting maybe 2-3 calls per week to 20-30 qualified leads per day. Our revenue has increased by over 250% in just 4 months. I can't recommend them enough!",
-                  name: "Sarah Martinez",
-                  business: "Martinez Dental Practice",
+                  quote: "Solson transformed my writing career completely. I went from struggling to get published to earning $50K in my first year. The platform is incredibly user-friendly and the global reach is amazing!",
+                  name: "Sarah Johnson",
+                  type: "Bestselling Romance Author",
                   rating: 5
                 },
                 {
-                  quote: "I was skeptical at first, but the results speak for themselves. My landscaping business is now the #1 choice in our area. I'm booked solid and had to hire 3 new crew members. Best investment I've ever made.",
-                  name: "David Chen",
-                  business: "Chen's Landscaping Solutions",
+                  quote: "As a researcher, getting my work published traditionally was a nightmare. With Solson, my climate research reached over 100,000 readers worldwide and actually influenced policy changes. Incredible impact!",
+                  name: "Dr. Michael Chen",
+                  type: "Climate Research Scientist",
                   rating: 5
                 },
                 {
-                  quote: "Within 60 days, our online visibility skyrocketed. We're now getting 15-20 new patient inquiries per week instead of 2-3. The quality of leads is incredible - these are people ready to schedule appointments, not just browsing.",
-                  name: "Dr. Michael Roberts",
-                  business: "Roberts Family Dentistry",
+                  quote: "I never thought my business expertise could become a bestselling book. Solson's platform made it so easy to publish and market my content. Now I'm earning more from my book than my consulting!",
+                  name: "Emma Rodriguez",
+                  type: "Business Strategy Consultant",
                   rating: 5
                 },
                 {
-                  quote: "Our restaurant went from struggling to survive to having a 2-week waitlist for weekend reservations. Online orders through delivery apps increased 340%. We had to hire 4 new staff members to keep up with demand.",
-                  name: "Maria Rossi",
-                  business: "Rossi's Italian Kitchen",
+                  quote: "The multimedia publishing capabilities are outstanding. My cooking videos and recipe book became an international hit, translated into 12 languages. Solson opened doors I never knew existed.",
+                  name: "Chef Maria Santos",
+                  type: "International Cookbook Author",
                   rating: 5
                 },
                 {
-                  quote: "As a law firm, we were drowning in competition. Solson helped us stand out and now we're the go-to choice for personal injury cases in our city. Our case intake has tripled and we're more selective with clients now.",
-                  name: "James Thompson",
-                  business: "Thompson Law Firm",
+                  quote: "From self-published author to full-time writer in 8 months. My sci-fi series gained a cult following and now I'm working on a TV adaptation. Solson made my dreams come true.",
+                  name: "James Wilson",
+                  type: "Science Fiction Author",
                   rating: 5
                 },
                 {
-                  quote: "HVAC is a competitive business, but now I'm getting 20+ service calls every week. My calendar is booked 3 months out and I've had to turn down work. The phone literally doesn't stop ringing.",
-                  name: "Robert Kim",
-                  business: "Kim's Climate Control",
+                  quote: "The educational content publishing tools are phenomenal. My art tutorials reached 50,000 students globally and built an amazing creative community. The revenue sharing is very fair too.",
+                  name: "Lisa Park",
+                  type: "Art Instructor & Content Creator",
                   rating: 5
                 }
               ].map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 p-8 rounded-xl min-w-[400px] flex-shrink-0 shadow-lg">
+                <div key={index} className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl min-w-[400px] flex-shrink-0 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                   <div className="flex items-center mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
@@ -591,7 +728,7 @@ function App() {
                     "{testimonial.quote}"
                   </blockquote>
                   <div className="font-semibold text-gray-900">- {testimonial.name}</div>
-                  <div className="text-gray-600">{testimonial.business}</div>
+                  <div className="text-gray-600">{testimonial.type}</div>
                 </div>
               ))}
             </div>
@@ -599,92 +736,111 @@ function App() {
           
           <div className="text-center">
             <button 
-              onClick={handleAskQuestion}
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg"
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold text-lg shadow-2xl group"
             >
-              Ask How We Can Help You
-              <ArrowRight className="inline ml-2 h-5 w-5" />
+              Join Our Success Stories
+              <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </div>
         </div>
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Trusted by Local Businesses Everywhere</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Trusted by Creators Worldwide</h2>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center">
-            <div className="text-center">
-              <Award className="h-12 w-12 text-blue-600 mx-auto mb-2" />
-              <div className="font-semibold text-gray-900">Google Partner</div>
-              <div className="text-sm text-gray-600">Certified Agency</div>
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <Award className="h-12 w-12 text-blue-600 mx-auto mb-2 group-hover:text-blue-700" />
+              <div className="font-semibold text-gray-900">Industry Leader</div>
+              <div className="text-sm text-gray-600">Top Publishing Platform</div>
             </div>
-            <div className="text-center">
-              <Shield className="h-12 w-12 text-green-600 mx-auto mb-2" />
-              <div className="font-semibold text-gray-900">BBB A+ Rating</div>
-              <div className="text-sm text-gray-600">Accredited Business</div>
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <Shield className="h-12 w-12 text-green-600 mx-auto mb-2 group-hover:text-green-700" />
+              <div className="font-semibold text-gray-900">Secure Platform</div>
+              <div className="text-sm text-gray-600">Protected Content</div>
             </div>
-            <div className="text-center">
-              <Users className="h-12 w-12 text-orange-600 mx-auto mb-2" />
-              <div className="font-semibold text-gray-900">750+ Clients</div>
-              <div className="text-sm text-gray-600">Success Stories</div>
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <Users className="h-12 w-12 text-orange-600 mx-auto mb-2 group-hover:text-orange-700" />
+              <div className="font-semibold text-gray-900">50K+ Authors</div>
+              <div className="text-sm text-gray-600">Global Community</div>
             </div>
-            <div className="text-center">
-              <Clock className="h-12 w-12 text-purple-600 mx-auto mb-2" />
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <Clock className="h-12 w-12 text-purple-600 mx-auto mb-2 group-hover:text-purple-700" />
               <div className="font-semibold text-gray-900">24/7 Support</div>
-              <div className="text-sm text-gray-600">Always Available</div>
+              <div className="text-sm text-gray-600">Always Here to Help</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Dominate Your Local Market?
+            Ready to Share Your Ideas with the World?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Stop losing customers to competitors. Ask us how we can help you attract more customers and grow your revenue.
+            Join 50,000+ authors and creators who chose Solson to publish their content globally. 
+            Your ideas deserve to reach millions of readers.
           </p>
           
-          <div className="bg-white p-8 rounded-2xl text-gray-900 max-w-md mx-auto">
-            <h3 className="text-2xl font-bold mb-6">Ask About Your Business</h3>
-            <div className="bg-blue-50 p-4 rounded-lg mb-6">
-              <h4 className="font-semibold text-blue-900 mb-2">What happens next?</h4>
-              <ul className="text-sm text-blue-800 space-y-1">
-                <li>✓ We'll analyze your current situation</li>
-                <li>✓ Identify growth opportunities</li>
-                <li>✓ Create a custom strategy</li>
-                <li>✓ Schedule a consultation call</li>
+          <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl text-white max-w-md mx-auto border border-white/20">
+            <h3 className="text-2xl font-bold mb-6 flex items-center justify-center">
+              <Sparkles className="h-6 w-6 mr-2" />
+              Start Publishing Today
+            </h3>
+            <div className="bg-white/10 p-4 rounded-xl mb-6 border border-white/20">
+              <h4 className="font-semibold mb-2 flex items-center justify-center">
+                <Award className="h-4 w-4 mr-2" />
+                What happens next?
+              </h4>
+              <ul className="text-sm space-y-1">
+                <li className="flex items-center justify-center">
+                  <CheckCircle className="h-3 w-3 mr-2 text-green-400" />
+                  Free publishing consultation
+                </li>
+                <li className="flex items-center justify-center">
+                  <CheckCircle className="h-3 w-3 mr-2 text-green-400" />
+                  Custom content strategy
+                </li>
+                <li className="flex items-center justify-center">
+                  <CheckCircle className="h-3 w-3 mr-2 text-green-400" />
+                  Global distribution plan
+                </li>
+                <li className="flex items-center justify-center">
+                  <CheckCircle className="h-3 w-3 mr-2 text-green-400" />
+                  Revenue optimization guide
+                </li>
               </ul>
             </div>
             <button 
-              onClick={handleAskQuestion}
-              className="w-full bg-orange-500 text-white py-4 rounded-lg hover:bg-orange-600 transition-colors font-semibold text-lg"
+              onClick={handleGetStarted}
+              className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-4 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Ask About My Business Now
+              Get Started Now
             </button>
           </div>
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div>
-              <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
-              <div className="font-semibold">No Obligation</div>
-              <div className="text-sm opacity-80">Completely free consultation</div>
+            <div className="group hover:scale-105 transition-all duration-300">
+              <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2 group-hover:text-green-300" />
+              <div className="font-semibold">Free to Start</div>
+              <div className="text-sm opacity-80">No upfront costs</div>
             </div>
-            <div>
-              <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
-              <div className="font-semibold">Results Guaranteed</div>
-              <div className="text-sm opacity-80">Or your money back</div>
+            <div className="group hover:scale-105 transition-all duration-300">
+              <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2 group-hover:text-green-300" />
+              <div className="font-semibold">Global Reach</div>
+              <div className="text-sm opacity-80">150+ countries</div>
             </div>
-            <div>
-              <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
-              <div className="font-semibold">Quick Turnaround</div>
-              <div className="text-sm opacity-80">See results in 30 days</div>
+            <div className="group hover:scale-105 transition-all duration-300">
+              <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2 group-hover:text-green-300" />
+              <div className="font-semibold">Instant Publishing</div>
+              <div className="text-sm opacity-80">Live in 24 hours</div>
             </div>
           </div>
         </div>
@@ -696,62 +852,66 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <a href="https://solson.online" className="flex items-center">
-                  <SolsonLogo className="h-8 w-8 mr-3" />
-                  <span className="text-2xl font-bold">Solson</span>
+                <a href="/" className="flex items-center group">
+                  <SolsonLogo className="h-8 w-8 mr-3 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Solson</span>
                 </a>
               </div>
-              <p className="text-gray-400">
-                Helping local businesses dominate their market with proven digital strategies.
+              <p className="text-gray-400 mb-4">
+                The world's leading digital publishing platform for creators and businesses.
               </p>
+              <div className="text-sm text-gray-400">
+                <div className="mb-1">1100 Lagrange St</div>
+                <div>Boston, MA 02132, USA</div>
+              </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
+              <h4 className="font-semibold mb-4">Publishing</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/local-seo.html" className="hover:text-white transition-colors">Local SEO</a></li>
-                <li><a href="/google-ads.html" className="hover:text-white transition-colors">Google Ads</a></li>
-                <li><a href="/social-media.html" className="hover:text-white transition-colors">Social Media Marketing</a></li>
-                <li><a href="/website-optimization.html" className="hover:text-white transition-colors">Website Optimization</a></li>
+                <li><a href="/books.html" className="hover:text-white transition-colors duration-300">Books & eBooks</a></li>
+                <li><a href="/articles.html" className="hover:text-white transition-colors duration-300">Articles & Blogs</a></li>
+                <li><a href="/multimedia.html" className="hover:text-white transition-colors duration-300">Multimedia Content</a></li>
+                <li><a href="/courses.html" className="hover:text-white transition-colors duration-300">Online Courses</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/about.html" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="/case-studies.html" className="hover:text-white transition-colors">Case Studies</a></li>
-                <li><a href="/blog.html" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="/contact.html" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="/about.html" className="hover:text-white transition-colors duration-300">About Us</a></li>
+                <li><a href="/success-stories.html" className="hover:text-white transition-colors duration-300">Success Stories</a></li>
+                <li><a href="/blog.html" className="hover:text-white transition-colors duration-300">Blog</a></li>
+                <li><a href="/contact.html" className="hover:text-white transition-colors duration-300">Contact</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
-                <div className="flex items-center">
-                  <Phone className="h-4 w-4 mr-2" />
-                  <a href="tel:+17814793999" className="hover:text-white transition-colors">(781) 479-3999</a>
+                <div className="flex items-center group">
+                  <Phone className="h-4 w-4 mr-2 group-hover:text-white transition-colors duration-300" />
+                  <a href="tel:+14303051205" className="hover:text-white transition-colors duration-300">(430) 305-1205</a>
                 </div>
-                <div className="flex items-center">
-                  <Mail className="h-4 w-4 mr-2" />
-                  <a href="mailto:peter@solson.online" className="hover:text-white transition-colors">peter@solson.online</a>
+                <div className="flex items-center group">
+                  <Mail className="h-4 w-4 mr-2 group-hover:text-white transition-colors duration-300" />
+                  <a href="mailto:peter@solson.online" className="hover:text-white transition-colors duration-300">peter@solson.online</a>
                 </div>
-                <div className="flex items-center">
-                  <MapPin className="h-4 w-4 mr-2" />
+                <div className="flex items-center group">
+                  <MapPin className="h-4 w-4 mr-2 group-hover:text-white transition-colors duration-300" />
                   <a 
-                    href="https://maps.google.com/?q=Boston,+Massachusetts" 
+                    href="https://maps.google.com/?q=1100+Lagrange+St,+Boston,+MA+02132" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors duration-300"
                   >
-                    Boston, Massachusetts
+                    1100 Lagrange St, Boston, MA
                   </a>
                 </div>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
-            <p>&copy; 2024 Solson. All rights reserved. | 
-              <a href="/privacy.html" className="hover:text-white transition-colors ml-2">Privacy Policy</a> | 
-              <a href="/terms.html" className="hover:text-white transition-colors ml-2">Terms of Service</a>
+            <p>&copy; 2024 Solson Publishing. All rights reserved. | 
+              <a href="/privacy.html" className="hover:text-white transition-colors duration-300 ml-2">Privacy Policy</a> | 
+              <a href="/terms.html" className="hover:text-white transition-colors duration-300 ml-2">Terms of Service</a>
             </p>
           </div>
         </div>
@@ -776,12 +936,39 @@ function App() {
           }
         }
         
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+        }
+        
+        @keyframes gradient {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+        
         .animate-scroll-rtl {
           animation: scroll-rtl 60s linear infinite;
         }
         
         .animate-scroll-ltr {
           animation: scroll-ltr 60s linear infinite;
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
         }
       `}</style>
     </div>

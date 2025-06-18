@@ -3,39 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Solson - Get Your Free Business Analysis</title>
-    <meta name="description" content="Ready to grow your local business? Contact Solson today for your free business analysis and custom growth strategy.">
+    <title>Contact Solson - Start Your Publishing Journey Today</title>
+    <meta name="description" content="Ready to publish your content globally? Contact Solson today for your free publishing consultation and custom content strategy. Join 50,000+ successful creators.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function askQuestion() {
-            const subject = encodeURIComponent("I want a website for my business");
+        function getStarted() {
+            const subject = encodeURIComponent("I want to publish my content");
             window.location.href = `mailto:peter@solson.online?subject=${subject}`;
         }
     </script>
 </head>
 <body class="bg-gray-50">
     <div class="min-h-screen">
+        <!-- Sticky CTA Bar -->
+        <div class="fixed bottom-0 left-0 right-0 bg-orange-500 text-white p-4 z-50 shadow-lg">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                    <span class="font-semibold">Ready to publish your content globally?</span>
+                </div>
+                <button onclick="getStarted()" class="bg-white text-orange-500 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+                    Get Started
+                </button>
+            </div>
+        </div>
+
         <!-- Header -->
-        <header class="bg-white shadow-sm border-b border-gray-100">
+        <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
                     <div class="flex items-center">
-                        <a href="https://solson.online" class="flex items-center">
+                        <a href="/" class="flex items-center">
                             <div class="h-10 w-10 relative flex items-center justify-center mr-3">
                                 <svg class="h-full w-full text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                 </svg>
                                 <svg class="absolute -top-1 -right-1 h-4 w-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
                             <span class="text-2xl font-bold text-gray-900">Solson</span>
                         </a>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://solson.online" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-                        <button onclick="askQuestion()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                            Ask Now
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                        <a href="/#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                        <a href="/#authors" class="text-gray-700 hover:text-blue-600 transition-colors">Authors</a>
+                        <a href="/about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                        <button onclick="getStarted()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                            Publish Now
                         </button>
                     </div>
                 </div>
@@ -49,7 +69,7 @@
                     Contact Solson
                 </h1>
                 <p class="text-xl text-gray-600 mb-8">
-                    Ready to grow your local business? Get in touch today for your free business analysis and custom growth strategy.
+                    Ready to publish your content globally? Get in touch today for your free publishing consultation and custom content strategy.
                 </p>
             </div>
         </section>
@@ -84,7 +104,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
-                                    <p class="text-gray-600">(781) 479-3999</p>
+                                    <p class="text-gray-600">(430) 305-1205</p>
                                     <p class="text-sm text-gray-500">Mon-Fri 9AM-5PM EST</p>
                                 </div>
                             </div>
@@ -98,17 +118,18 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-900 mb-1">Location</h3>
-                                    <p class="text-gray-600">Boston, Massachusetts</p>
-                                    <p class="text-sm text-gray-500">Serving businesses nationwide</p>
+                                    <p class="text-gray-600">1100 Lagrange St</p>
+                                    <p class="text-gray-600">Boston, MA 02132, USA</p>
+                                    <p class="text-sm text-gray-500">Serving creators worldwide</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mt-8 p-6 bg-blue-50 rounded-lg">
-                            <h3 class="font-semibold text-blue-900 mb-3">Free Business Analysis</h3>
-                            <p class="text-blue-800 text-sm mb-4">Get a comprehensive analysis of your current online presence and a custom growth strategy - completely free.</p>
-                            <button onclick="askQuestion()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                                Ask About Your Business
+                            <h3 class="font-semibold text-blue-900 mb-3">Free Publishing Consultation</h3>
+                            <p class="text-blue-800 text-sm mb-4">Get a comprehensive analysis of your content potential and a custom publishing strategy - completely free.</p>
+                            <button onclick="getStarted()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                                Start Your Publishing Journey
                             </button>
                         </div>
                     </div>
@@ -151,20 +172,6 @@
                             </div>
                             
                             <div>
-                                <label for="business-name" class="block text-sm font-medium text-gray-700 mb-1">
-                                    Business Name *
-                                </label>
-                                <input
-                                    type="text"
-                                    id="business-name"
-                                    name="business-name"
-                                    required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="Your Business Name"
-                                />
-                            </div>
-                            
-                            <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
                                     Email Address *
                                 </label>
@@ -192,30 +199,28 @@
                             </div>
                             
                             <div>
-                                <label for="business-type" class="block text-sm font-medium text-gray-700 mb-1">
-                                    Business Type
+                                <label for="content-type" class="block text-sm font-medium text-gray-700 mb-1">
+                                    Content Type
                                 </label>
                                 <select
-                                    id="business-type"
-                                    name="business-type"
+                                    id="content-type"
+                                    name="content-type"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 >
-                                    <option value="">Select your business type</option>
-                                    <option value="restaurant">Restaurant/Food Service</option>
-                                    <option value="healthcare">Healthcare/Medical</option>
-                                    <option value="legal">Legal Services</option>
-                                    <option value="home-services">Home Services (HVAC, Plumbing, etc.)</option>
-                                    <option value="automotive">Automotive</option>
-                                    <option value="beauty">Beauty/Wellness</option>
-                                    <option value="retail">Retail</option>
-                                    <option value="real-estate">Real Estate</option>
+                                    <option value="">What do you want to publish?</option>
+                                    <option value="book">Book/eBook</option>
+                                    <option value="articles">Articles/Blog Posts</option>
+                                    <option value="research">Research Papers</option>
+                                    <option value="multimedia">Multimedia Content</option>
+                                    <option value="magazine">Magazine/Newsletter</option>
+                                    <option value="course">Online Course</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
                             
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
-                                    Tell us about your business goals *
+                                    Tell us about your content *
                                 </label>
                                 <textarea
                                     id="message"
@@ -223,7 +228,7 @@
                                     rows="4"
                                     required
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    placeholder="What are your main challenges? What would you like to achieve?"
+                                    placeholder="What's your content about? What are your publishing goals?"
                                 ></textarea>
                             </div>
                             
@@ -238,21 +243,106 @@
                         <div class="mt-6 bg-white p-4 rounded-lg border">
                             <h4 class="font-semibold text-gray-900 mb-2">What happens when you contact us:</h4>
                             <ul class="text-sm text-gray-600 space-y-1">
-                                <li>✓ Free analysis of your current online presence</li>
-                                <li>✓ Custom growth strategy for your business</li>
-                                <li>✓ Competitor analysis and insights</li>
-                                <li>✓ Revenue growth projections</li>
+                                <li>✓ Free content analysis and publishing consultation</li>
+                                <li>✓ Custom publishing strategy for your content</li>
+                                <li>✓ Global distribution and marketing plan</li>
+                                <li>✓ Revenue optimization recommendations</li>
                                 <li>✓ No obligation consultation call</li>
                             </ul>
                         </div>
                         
                         <p class="text-xs text-gray-500 mt-4 text-center">
-                            No spam, just valuable insights for your business growth.
+                            Join 50,000+ successful creators who chose Solson for their publishing journey.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12 pb-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <a href="/" class="flex items-center">
+                                <div class="h-8 w-8 relative flex items-center justify-center mr-3">
+                                    <svg class="h-full w-full text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                    <svg class="absolute -top-1 -right-1 h-4 w-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-2xl font-bold">Solson</span>
+                            </a>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            The world's leading digital publishing platform for creators and businesses.
+                        </p>
+                        <div class="text-sm text-gray-400">
+                            <div class="mb-1">1100 Lagrange St</div>
+                            <div>Boston, MA 02132, USA</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Publishing</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/books.html" class="hover:text-white transition-colors">Books & eBooks</a></li>
+                            <li><a href="/articles.html" class="hover:text-white transition-colors">Articles & Blogs</a></li>
+                            <li><a href="/multimedia.html" class="hover:text-white transition-colors">Multimedia Content</a></li>
+                            <li><a href="/courses.html" class="hover:text-white transition-colors">Online Courses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Company</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="/about.html" class="hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="/success-stories.html" class="hover:text-white transition-colors">Success Stories</a></li>
+                            <li><a href="/blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="/contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Contact</h4>
+                        <div class="space-y-2 text-gray-400">
+                            <div class="flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                <a href="tel:+14303051205" class="hover:text-white transition-colors">(430) 305-1205</a>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                <a href="mailto:peter@solson.online" class="hover:text-white transition-colors">peter@solson.online</a>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <a 
+                                    href="https://maps.google.com/?q=1100+Lagrange+St,+Boston,+MA+02132" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="hover:text-white transition-colors"
+                                >
+                                    1100 Lagrange St, Boston, MA
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
+                    <p>&copy; 2024 Solson Publishing. All rights reserved. | 
+                        <a href="/privacy.html" class="hover:text-white transition-colors ml-2">Privacy Policy</a> | 
+                        <a href="/terms.html" class="hover:text-white transition-colors ml-2">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Publishing - Solson</title>
+    <meta name="description" content="Publish your book globally with Solson. From fiction to non-fiction, textbooks to children's books - reach millions of readers worldwide.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function getStarted() {
+            const subject = encodeURIComponent("I want to publish my book");
+            window.location.href = `mailto:hello@solson.online?subject=${subject}`;
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center">
+                            <div class="h-10 w-10 relative flex items-center justify-center mr-3">
+                                <svg class="h-full w-full text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                                <svg class="absolute -top-1 -right-1 h-4 w-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-2xl font-bold text-gray-900">Solson</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                        <button onclick="getStarted()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                            Publish Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-blue-50 to-white py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Book Publishing
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    Publish your book globally with Solson. From fiction to non-fiction, textbooks to children's books - reach millions of readers worldwide.
+                </p>
+                <button onclick="getStarted()" class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 font-semibold text-lg shadow-lg">
+                    Publish Your Book
+                </button>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="prose prose-lg max-w-none">
+                    <h2>Professional Book Publishing</h2>
+                    <p>Turn your manuscript into a published book that reaches readers worldwide. Our comprehensive book publishing platform handles everything from formatting to global distribution.</p>
+                    
+                    <h2>Book Types We Publish:</h2>
+                    <ul>
+                        <li><strong>Fiction</strong> - Novels, short stories, poetry, and creative writing</li>
+                        <li><strong>Non-Fiction</strong> - Business, self-help, biography, history, and more</li>
+                        <li><strong>Educational</strong> - Textbooks, academic works, and educational materials</li>
+                        <li><strong>Children's Books</strong> - Picture books, young adult, and educational content</li>
+                        <li><strong>Technical</strong> - Programming, engineering, and specialized guides</li>
+                        <li><strong>Reference</strong> - Manuals, handbooks, and reference materials</li>
+                    </ul>
+
+                    <h2>Our Publishing Process:</h2>
+                    <ol>
+                        <li><strong>Manuscript Review</strong> - Professional assessment of your content</li>
+                        <li><strong>Editing & Formatting</strong> - Professional editing and layout design</li>
+                        <li><strong>Cover Design</strong> - Eye-catching covers that sell books</li>
+                        <li><strong>Global Distribution</strong> - Available in 150+ countries instantly</li>
+                        <li><strong>Marketing Support</strong> - Promotional tools and strategies</li>
+                        <li><strong>Royalty Payments</strong> - Earn up to 70% on every sale</li>
+                    </ol>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg my-8">
+                        <h3 class="text-blue-900 font-semibold mb-4">Ready to become a published author?</h3>
+                        <button onclick="getStarted()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                            Start Publishing Your Book
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
