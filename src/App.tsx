@@ -71,7 +71,7 @@ function App() {
 
   const handleGetStarted = () => {
     const subject = encodeURIComponent("I want to publish my content");
-    window.location.href = `mailto:peter@solson.online?subject=${subject}`;
+    window.location.href = `mailto:peters@solson.online?subject=${subject}`;
   };
 
   // Custom Logo Component
@@ -892,7 +892,7 @@ function App() {
                 </div>
                 <div className="flex items-center group">
                   <Mail className="h-4 w-4 mr-2 group-hover:text-white transition-colors duration-300" />
-                  <a href="mailto:peter@solson.online" className="hover:text-white transition-colors duration-300">peter@solson.online</a>
+                  <a href="mailto:peters@solson.online" className="hover:text-white transition-colors duration-300">peters@solson.online</a>
                 </div>
                 <div className="flex items-center group">
                   <MapPin className="h-4 w-4 mr-2 group-hover:text-white transition-colors duration-300" />
